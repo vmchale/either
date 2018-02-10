@@ -4,5 +4,3 @@
 datatype either(a: t@ype, b: t@ype+) =
   | left of a
   | right of b
-
-// implement 
