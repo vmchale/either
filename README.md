@@ -15,12 +15,16 @@ in
 let dbin = https://raw.githubusercontent.com/vmchale/atspkg/master/pkgs/default-bin.dhall
 
 in pkg //
-  { bin = 
+  { bin =
     [ dbin //
       { src = "src/ats-wc.dats"
-      , target = "target/ats-wc" 
+      , target = "target/ats-wc"
+      , gcBin = True
       }
     ]
     , dependencies = [ "either" ]
   }
 ```
+
+As `either` is a high-level library, you should be sure to use garbage
+collection!
