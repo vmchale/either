@@ -10,8 +10,8 @@ implement eq_either_either (x, y) =
   case+ (x, y) of
     | (right (_), left (_)) => false
     | (left (_), right (_)) => false
-    | (left (x), left (y)) => true
-    | (right (x), right (y)) => true
+    | (left (x), left (y)) => gequal_val_val(x, y)
+    | (right (x), right (y)) => gequal_val_val(x, y)
 
 implement neq_either_either (x, y) =
   not(eq_either_either(x, y))

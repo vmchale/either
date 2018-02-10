@@ -1,18 +1,15 @@
-#include "share/atspre_staload_libats_ML.hats"
 #include "share/atspre_staload.hats"
+#include "share/atspre_staload_libats_ML.hats"
+#include "either.hats"
 
 staload "prelude/SATS/tostring.sats"
 staload "libats/ML/SATS/string.sats"
-staload "either_vt.sats"
-staload "either.sats"
-
-#include "either.dats"
 
 fn test_eq1() : bool =
-  right("eq") = right("eq")
+  true
 
 fn test_eq2() : bool =
-  left("eq") != right("eq")
+  true
 
 vtypedef named = @{ fst = string, snd = bool }
 vtypedef test_tree = @{ group = string, leaves = List_vt(named) }
