@@ -11,6 +11,11 @@ implement {a} monad_join (x) =
     | right (left (y)) => left(y)
     | right (right (x)) => right(x)
 
+implement {a}{b} monad_fmap (x, fopr) =
+  case+ x of
+    | left (y) => left(y)
+    | right (x) => right(fopr(x))
+
 implement {a}{b} monad_bind (x, fopr) =
   case+ x of
     | left (y) => left(y)
