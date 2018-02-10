@@ -6,7 +6,12 @@ staload "prelude/SATS/tostring.sats"
 staload "libats/ML/SATS/string.sats"
 
 fn test_eq1() : bool =
-  true
+  let
+    val rhs: either(string, string) = right("eq")
+    val lhs: either(string, string) = right("eq")
+  in
+    true
+  end
 
 fn test_eq2() : bool =
   true
