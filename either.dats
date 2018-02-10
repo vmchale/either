@@ -8,4 +8,4 @@ implement {a} monad_return (x) =
 implement {a}{b} monad_bind (x, fopr) =
   case+ x of
     | left (y) => left(y)
-    | right (y) => right(fopr(y))
+    | right (y) => fopr(y)
