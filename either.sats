@@ -5,6 +5,14 @@ datatype either(a: t@ype, b: t@ype+) =
   | left of a
   | right of b
 
+fun eq_either_either {a:t@ype}{b:t@ype+} (x : either(a, b), y : either(a, b)) : bool
+
+fun neq_either_either {a:t@ype}{b:t@ype+} (x : either(a, b), y : either(a, b)) : bool
+
+overload = with eq_either_either
+
+overload != with neq_either_either
+
 fun lefts {a:t@ype}{b:t@ype+}{n:int} (x : list(either(a,b), n)) :
   [ m : int | m <= n ] list(a, m)
 

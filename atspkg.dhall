@@ -5,8 +5,9 @@ let dbin = https://raw.githubusercontent.com/vmchale/atspkg/master/pkgs/default-
 in pkg //
   { test = 
     [ dbin //
-      { src = "test/either.dats"
-      , target = "target/either" 
+      { src = "test/test.dats"
+      , target = "target/test"
+      , gcBin = True
       }
     ]
   }
