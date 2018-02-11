@@ -1,5 +1,7 @@
 # either
 
+[![Build Status](https://travis-ci.org/vmchale/either.svg?branch=master)](https://travis-ci.org/vmchale/either)
+
 This is a library providing something like
 [Data.Either](https://hackage.haskell.org/package/base-4.10.1.0/docs/Data-Either.html)
 for Haskell.
