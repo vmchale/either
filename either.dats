@@ -29,10 +29,9 @@ implement lefts (ys) =
     | list_nil() => list_nil()
     | list_cons (right (x), xs) => lefts(xs)
 
-// prfun length_list{m:int}(x: [n:int | n <= m]) 
+// | list_cons (left (x), xs) => list_cons(x, lefts(xs))
 // functorial proof functions?
 // want to prove: if length(f(xs)) <= n, length(xs) = n, length(cons(x, xs)) <= length(cons(x, f(xs)))
-// | list_cons (left (x), xs) => list_cons(x, lefts(xs))
 implement {a} monad_return (x) =
   right(x)
 

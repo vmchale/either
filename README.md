@@ -4,6 +4,9 @@ This is a library providing something like
 [Data.Either](https://hackage.haskell.org/package/base-4.10.1.0/docs/Data-Either.html)
 for Haskell.
 
+It's not really complete yet, but it's probably useful in its current state
+anyhow (do beware of un-implemented templates).
+
 ## Use
 
 With [atspkg](https://github.com/vmchale/atspkg), you can simply add
