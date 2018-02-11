@@ -10,4 +10,5 @@ install:
   - atspkg -v
 script:
   - curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
+  - atspkg nuke
   - atspkg test
