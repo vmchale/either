@@ -5,6 +5,9 @@
 staload "prelude/SATS/tostring.sats"
 staload "libats/ML/SATS/string.sats"
 
+#define nil list_vt_nil
+#define :: list_vt_cons
+
 fn test_eq1() : bool =
   let
     val rhs: either(string, string) = right("eq")
@@ -48,11 +51,9 @@ fnx iterate_list(t : test_tree, i : int, n : int) : void =
 
 implement main0 () =
   {
-    var b0 = test_eq1()
-    var n0 = @{ fst = "eq (1/2)", snd = b0 }
-    var b1 = test_eq2()
-    var n1 = @{ fst = "eq (2/2)", snd = b1 }
-    var xs = list_vt_cons(n0, list_vt_cons(n1, list_vt_nil))
+    var n0 = @{ fst = "eq (1/2)", snd = test_eq1() }
+    var n1 = @{ fst = "eq (2/2)", snd = test_eq2() }
+    var xs =  n0 :: n1 :: nil
     var total = list_vt_length(xs)
     val g = @{ group = "monad_join", leaves = xs } : test_tree
     val _ = iterate_list(g, 0, total)
