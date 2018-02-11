@@ -10,5 +10,4 @@ in pkg //
       , gcBin = True
       }
     ]
-    , compiler = [0,3,10]
   }

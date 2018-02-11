@@ -6,6 +6,7 @@ staload "prelude/SATS/tostring.sats"
 staload "libats/ML/SATS/string.sats"
 
 #define nil list_vt_nil
+
 #define :: list_vt_cons
 
 fn test_eq1() : bool =
@@ -53,7 +54,7 @@ implement main0 () =
   {
     var n0 = @{ fst = "eq (1/2)", snd = test_eq1() }
     var n1 = @{ fst = "eq (2/2)", snd = test_eq2() }
-    var xs =  n0 :: n1 :: nil
+    var xs = n0 :: n1 :: nil
     var total = list_vt_length(xs)
     val g = @{ group = "monad_join", leaves = xs } : test_tree
     val _ = iterate_list(g, 0, total)
