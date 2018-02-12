@@ -1,8 +1,13 @@
 let dep = https://raw.githubusercontent.com/vmchale/atspkg/master/pkgs/default-pkg.dhall
+in
+let concat = https://ipfs.io/ipfs/QmQ8w5PLcsNz56dMvRtq54vbuPe9cNnCCUXAQp6xLc6Ccx/Prelude/Text/concat
+in
+let showVersion = https://raw.githubusercontent.com/vmchale/atspkg/master/pkgs/dhall-version.dhall
 
-in dep //
-  { libName = "either"
-  , dir = ".atspkg/contrib"
-  , url = "https://github.com/vmchale/either/archive/0.1.0.tar.gz"
-  , libVersion = [0,1,0]
-  }
+in λ(x : List Integer) → 
+  dep //
+    { libName = "either"
+    , dir = ".atspkg/contrib"
+    , url = concat ["https://github.com/vmchale/either/archive/", showVersion x, ".tar.gz"]
+    , libVersion = x
+    }
