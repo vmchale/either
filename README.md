@@ -7,7 +7,7 @@ This is a library providing something like
 for Haskell.
 
 It's not really complete yet, but it's probably useful in its current state
-anyhow (do beware of un-implemented templates).
+(do beware of un-implemented templates).
 
 ## Use
 
