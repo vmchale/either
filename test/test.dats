@@ -1,14 +1,10 @@
 #include "share/atspre_staload.hats"
 #include "share/atspre_staload_libats_ML.hats"
 #include "mylibies.hats"
-#include "$PATSHOMELOCS/specats-0.1.1/mylibies.hats"
+#include "$PATSHOMELOCS/specats-0.1.2/mylibies.hats"
 
 staload "prelude/SATS/tostring.sats"
 staload "libats/ML/SATS/string.sats"
-
-#define nil list_vt_nil
-
-#define :: list_vt_cons
 
 fn test_eq1() : bool =
   let
