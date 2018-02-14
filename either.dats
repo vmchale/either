@@ -2,6 +2,9 @@ staload "either.sats"
 staload "libats/ML/SATS/list0.sats"
 
 #include "share/atspre_staload_libats_ML.hats"
+#include "libats/ML/DATS/SHARE/monad.hats"
+
+assume monad_type(b : t0p) = [a:t0p] either(a, b)
 
 implement {a}{b} eq_either_either (x, y) =
   case+ (x, y) of
@@ -44,21 +47,8 @@ implement {a}{b} lefts (ys) =
     | cons0 (right (x), xs) => lefts(xs)
     | cons0 (left (x), xs) => cons0(x, lefts(xs))
 
-assume monad_type(b : t0p) = [a:t0p] either(a, b)
-
 implement {a} monad_return (x) =
   right(x)
-
-implement {a} monad_join (x) =
-  case+ x of
-    | left (y) => left(y)
-    | right (left (y)) => left(y)
-    | right (right (x)) => right(x)
-
-implement {a}{b} monad_fmap (fopr, x) =
-  case+ x of
-    | left (y) => left(y)
-    | right (x) => right(fopr(x))
 
 implement {a}{b} monad_bind (x, fopr) =
   case+ x of
