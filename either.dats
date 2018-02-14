@@ -16,37 +16,37 @@ implement {a}{b} eq_either_either (x, y) =
 implement {a}{b} neq_either_either (x, y) =
   not(eq_either_either(x, y))
 
-implement is_left (x) =
+implement {a}{b} is_left (x) =
   case+ x of
     | left (_) => true
     | right (_) => false
 
-implement is_right (x) =
+implement {a}{b} is_right (x) =
   case+ x of
     | left (_) => false
     | right (_) => true
 
-implement from_right (x, y) =
+implement {a}{b} from_right (x, y) =
   case+ y of
     | right (y0) => y0
     | left (_) => x
 
-implement from_left (x, y) =
+implement {a}{b} from_left (x, y) =
   case+ y of
     | left (y0) => y0
     | right (_) => x
 
-implement either_ (f, g, x) =
+implement {a}{b}{c} either_ (f, g, x) =
   case+ x of
     | left (x0) => f(x0)
     | right (x0) => g(x0)
 
-implement lefts (ys) =
+implement {a}{b} lefts (ys) =
   case- ys of
     | list_nil() => list_nil()
     | list_cons (right (x), xs) => lefts(xs)
 
-// | list_cons (left (x), xs) => list_cons(x, lefts(xs))
+//| list_cons (left (x), xs) => list_cons(x, lefts(xs))
 implement {a} monad_return (x) =
   right(x)
 
