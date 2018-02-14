@@ -6,14 +6,14 @@ staload "prelude/SATS/list.sats"
 
 assume monad_type(b : t0p) = [a:t0p] either(a, b)
 
-implement eq_either_either (x, y) =
+implement {a}{b} eq_either_either (x, y) =
   case+ (x, y) of
     | (right (_), left (_)) => false
     | (left (_), right (_)) => false
-    | (left (x), left (y)) => gequal_val_val(x, y)
-    | (right (x), right (y)) => gequal_val_val(x, y)
+    | (left (x), left (y)) => gequal_val_val<a>(x, y)
+    | (right (x), right (y)) => gequal_val_val<b>(x, y)
 
-implement neq_either_either (x, y) =
+implement {a}{b} neq_either_either (x, y) =
   not(eq_either_either(x, y))
 
 datasort list =

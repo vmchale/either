@@ -11,10 +11,10 @@ staload "libats/ML/SATS/string.sats"
 
 fn test_eq1() : bool =
   let
-    val rhs: either(string, string) = right("eq")
-    val lhs: either(string, string) = right("eq")
+    val rhs = right{string,string}("eq")
+    val lhs = right{string,string}("eq")
   in
-    true
+    rhs = lhs
   end
 
 fn test_eq2() : bool =
