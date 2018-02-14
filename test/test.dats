@@ -18,7 +18,12 @@ fn test_eq1() : bool =
   end
 
 fn test_eq2() : bool =
-  true
+  let
+    val rhs = left{string,string}("eq")
+    val lhs = right{string,string}("eq")
+  in
+    rhs != lhs
+  end
 
 vtypedef named = @{ fst = string, snd = bool }
 vtypedef test_tree = @{ group = string, leaves = List_vt(named) }
