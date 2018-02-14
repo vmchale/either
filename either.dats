@@ -1,10 +1,7 @@
 staload "either.sats"
-staload "prelude/SATS/list.sats"
+staload "libats/ML/SATS/list0.sats"
 
-#include "prelude/DATS/basics.dats"
-#include "prelude/DATS/list.dats"
-
-assume monad_type(b : t0p) = [a:t0p] either(a, b)
+#include "share/atspre_staload_libats_ML.hats"
 
 implement {a}{b} eq_either_either (x, y) =
   case+ (x, y) of
@@ -42,11 +39,13 @@ implement {a}{b}{c} either_ (f, g, x) =
     | right (x0) => g(x0)
 
 implement {a}{b} lefts (ys) =
-  case- ys of
-    | list_nil() => list_nil()
-    | list_cons (right (x), xs) => lefts(xs)
+  case+ ys of
+    | nil0() => nil0
+    | cons0 (right (x), xs) => lefts(xs)
+    | cons0 (left (x), xs) => cons0(x, lefts(xs))
 
-//| list_cons (left (x), xs) => list_cons(x, lefts(xs))
+assume monad_type(b : t0p) = [a:t0p] either(a, b)
+
 implement {a} monad_return (x) =
   right(x)
 

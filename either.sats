@@ -13,11 +13,9 @@ overload = with eq_either_either
 
 overload != with neq_either_either
 
-fun {a:t@ype}{b:t@ype+} lefts {n:int} (x : list(either(a,b), n)) :
-  [ m : int | m <= n ] list(a, m)
+fun {a:t@ype}{b:t@ype+} lefts (x : list0(either(a,b))) : list0(a)
 
-fun {a:t@ype}{b:t@ype+} rights {n:int} (x : list(either(a,b), n)) :
-  [ m : int | m <= n ] list(b, m)
+fun {a:t@ype}{b:t@ype+} rights (x : list0(either(a,b))) : list0(b)
 
 fun {a:t@ype}{b:t@ype+}{c:t@ype} either_ (f : a -> c, g : b -> c, x : either(a, b)) : c
 
