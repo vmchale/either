@@ -6,8 +6,6 @@ This is a library providing something like
 [Data.Either](https://hackage.haskell.org/package/base-4.10.1.0/docs/Data-Either.html)
 for Haskell.
 
-It is not fully complete yet.
-
 ## Use
 
 With [atspkg](https://github.com/vmchale/atspkg), you can simply add
