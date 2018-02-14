@@ -16,13 +16,30 @@ implement {a}{b} eq_either_either (x, y) =
 implement {a}{b} neq_either_either (x, y) =
   not(eq_either_either(x, y))
 
-datasort list =
-  | NIL
-  | CONS of list
+implement is_left (x) =
+  case+ x of
+    | left (_) => true
+    | right (_) => false
 
-dataprop LENGTH(list, int) =
-  | L_NIL(NIL, 0)
-  | {l:list}{len:nat} L_CONS(CONS(l), 1 + len) of (LENGTH(l, len))
+implement is_right (x) =
+  case+ x of
+    | left (_) => false
+    | right (_) => true
+
+implement from_right (x, y) =
+  case+ y of
+    | right (y0) => y0
+    | left (_) => x
+
+implement from_left (x, y) =
+  case+ y of
+    | left (y0) => y0
+    | right (_) => x
+
+implement either_ (f, g, x) =
+  case+ x of
+    | left (x0) => f(x0)
+    | right (x0) => g(x0)
 
 implement lefts (ys) =
   case- ys of
@@ -30,8 +47,6 @@ implement lefts (ys) =
     | list_cons (right (x), xs) => lefts(xs)
 
 // | list_cons (left (x), xs) => list_cons(x, lefts(xs))
-// functorial proof functions?
-// want to prove: if length(f(xs)) <= n, length(xs) = n, length(cons(x, xs)) <= length(cons(x, f(xs)))
 implement {a} monad_return (x) =
   right(x)
 
