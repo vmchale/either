@@ -2,7 +2,6 @@ staload "either.sats"
 staload "libats/ML/SATS/list0.sats"
 
 #include "share/atspre_staload_libats_ML.hats"
-#include "libats/ML/DATS/SHARE/monad.hats"
 
 assume monad_type(b : t0p) = [a:t0p] either(a, b)
 

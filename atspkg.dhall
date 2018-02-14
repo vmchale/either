@@ -11,4 +11,5 @@ in pkg //
       }
     ]
     , compiler = [0,3,10]
+    , dependencies = [ "specats" ]
   }
