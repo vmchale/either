@@ -1,15 +1,13 @@
-let pkg = https://raw.githubusercontent.com/vmchale/atspkg/master/pkgs/default.dhall
-in
-let dbin = https://raw.githubusercontent.com/vmchale/atspkg/master/pkgs/default-bin.dhall
+let prelude = https://raw.githubusercontent.com/vmchale/atspkg/master/dhall/atspkg-prelude.dhall
 
-in pkg //
+in prelude.default //
   { test = 
-    [ dbin //
+    [ prelude.bin //
       { src = "test/test.dats"
       , target = "target/test"
       , gcBin = True
       }
     ]
     , compiler = [0,3,10]
-    , dependencies = [ "specats" ]
+    , dependencies = prelude.mapPlainDeps [ "specats" ]
   }
