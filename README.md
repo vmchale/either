@@ -4,7 +4,7 @@
 
 This is a library providing something like
 [Data.Either](https://hackage.haskell.org/package/base-4.10.1.0/docs/Data-Either.html)
-for Haskell.
+for ATS.
 
 ## Use
 
