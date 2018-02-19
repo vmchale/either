@@ -1,7 +1,7 @@
 #include "share/atspre_staload.hats"
 #include "share/atspre_staload_libats_ML.hats"
 #include "mylibies.hats"
-#include "$PATSHOMELOCS/specats-0.1.2/mylibies.hats"
+#include "$PATSHOMELOCS/specats-0.2.2/mylibies.hats"
 
 staload "prelude/SATS/tostring.sats"
 staload "libats/ML/SATS/string.sats"
