@@ -8,6 +8,5 @@ in prelude.default //
       , gcBin = True
       }
     ]
-    , compiler = [0,3,10]
     , dependencies = prelude.mapPlainDeps [ "specats" ]
   }
