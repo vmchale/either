@@ -1,5 +1,8 @@
-let makePkg = https://raw.githubusercontent.com/vmchale/atspkg/master/dhall/make-pkg.dhall
+let prelude = https://raw.githubusercontent.com/vmchale/atspkg/master/dhall/prelude.dhall
 
 in λ(x : List Integer) → 
-  makePkg { x = x, name = "either", githubUsername = "vmchale" }
-    // { description = [ "Generic sum types and utilities for working with them." ] : Optional Text }
+  prelude.makePkgDescr
+    { x = x, name = "either"
+    , githubUsername = "vmchale"
+    , description = "Generic sum types and utilities for working with them."
+    }
