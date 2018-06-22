@@ -3,7 +3,7 @@ staload "libats/ML/SATS/list0.sats"
 
 #include "share/atspre_staload_libats_ML.hats"
 
-assume monad_type(b : t0p) = [a:t0p] either(a, b)
+absimpl monad_type(b: t0p) = [a:t0p] either(a, b)
 
 implement {a}{b} eq_either_either (x, y) =
   case+ (x, y) of
