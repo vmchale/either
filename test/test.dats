@@ -1,7 +1,7 @@
 #include "share/atspre_staload.hats"
 #include "share/atspre_staload_libats_ML.hats"
 #include "mylibies.hats"
-#include "$PATSHOMELOCS/specats-0.2.3/mylibies.hats"
+#include "$PATSHOMELOCS/specats-0.4.0/mylibies.hats"
 
 staload "prelude/SATS/tostring.sats"
 staload "libats/ML/SATS/string.sats"
@@ -40,10 +40,10 @@ fun test_is_left() : bool =
 
 implement main0 () =
   {
-    var n0 = @{ fst = "eq (1/2)", snd = test_eq1() }
-    var n1 = @{ fst = "eq (2/2)", snd = test_eq2() }
-    var n2 = @{ fst = "from_left", snd = test_from_left() }
-    var n3 = @{ fst = "is_left", snd = test_is_left() }
+    var n0 = @{ test_name = "eq (1/2)", test_result = test_eq1() }
+    var n1 = @{ test_name = "eq (2/2)", test_result = test_eq2() }
+    var n2 = @{ test_name = "from_left", test_result = test_from_left() }
+    var n3 = @{ test_name = "is_left", test_result = test_is_left() }
     var xs = n0 :: n1 :: n2 :: n3 :: nil
     var total = list_vt_length(xs)
     val g = @{ group = "either", leaves = xs } : test_tree
