@@ -1,4 +1,4 @@
-staload "either.sats"
+staload "./either.sats"
 staload "libats/ML/SATS/list0.sats"
 
 #include "share/atspre_staload_libats_ML.hats"
