@@ -17,7 +17,10 @@ fun {a:t@ype}{b:t@ype+} lefts (x : list0(either(a,b))) : list0(a)
 
 fun {a:t@ype}{b:t@ype+} rights (x : list0(either(a,b))) : list0(b)
 
-fun {a:t@ype}{b:t@ype+}{c:t@ype} either_ (f : a -> c, g : b -> c, x : either(a, b)) : c
+fun {a:t@ype}{b:t@ype+}{c:t@ype} either_ ( f : a -<cloref1> c
+                                         , g : b -<cloref1> c
+                                         , x : either(a, b)
+                                         ) : c
 
 fun {a:t@ype}{b:t@ype+} is_left (x : either(a, b)) : bool
 
