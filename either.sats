@@ -1,6 +1,10 @@
 #include "share/atspre_staload_libats_ML.hats"
 #include "libats/ML/SATS/SHARE/monad.hats"
 
+dataprop EITHER(a: prop, b: prop) =
+  | LEFT of a
+  | RIGHT of b
+
 datatype either(a: t@ype, b: t@ype+) =
   | left of a
   | right of b
@@ -21,6 +25,8 @@ fun {a:t@ype}{b:t@ype+}{c:t@ype} either_ ( f : a -<cloref1> c
                                          , g : b -<cloref1> c
                                          , x : either(a, b)
                                          ) : c
+
+prfun {A:prop}{B:prop}{C:prop} EITHER_ (f : A -<prf> B, g : B -<prf> C, x : EITHER(A, B)) : C
 
 fun {a:t@ype}{b:t@ype+} is_left (x : either(a, b)) : bool
 
