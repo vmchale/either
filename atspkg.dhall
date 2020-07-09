@@ -3,8 +3,10 @@ let prelude =
 
 in    prelude.default
     ⫽ { test =
-          [   prelude.bin
-            ⫽ { src = "test/test.dats", target = "target/test", gcBin = True }
-          ]
+        [   prelude.bin
+          ⫽ { src = "test/test.dats", target = "target/test", gcBin = True }
+        ]
+      , compiler = [ 0, 4, 0 ]
+      , version = [ 0, 3, 13 ]
       , dependencies = prelude.mapPlainDeps [ "specats" ]
       }
